@@ -583,6 +583,7 @@ namespace AssetBundleBrowser.AssetBundleModel
                 if (!DataSource.IsReadOnly ())
                 {
                     //TODO: remove the variant name from the renaming to avoid crating one.
+                    //DataSource.SetAssetBundleNameAndVariant(assetName, bundleName, variantName);
                     DataSource.SetAssetBundleNameAndVariant(assetName, bundleName, variantName);
                 }
             }

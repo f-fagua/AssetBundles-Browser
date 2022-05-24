@@ -122,6 +122,8 @@ namespace AssetBundleBrowser.AssetBundleModel
         private void SetShortName(string inputName)
         {
             m_ShortName = inputName;
+            m_VariantName = string.Empty; // Make sure this does not make variants when renaming.
+            return;
             int indexOfDot = m_ShortName.LastIndexOf('.');
             if (indexOfDot > -1)
             {

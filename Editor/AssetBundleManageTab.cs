@@ -106,6 +106,12 @@ namespace AssetBundleBrowser
 
         internal void OnGUI(Rect pos)
         {
+            if (GUILayout.Button("Add .bundle to all"))
+            {
+                RenameAll(".bundle");
+            }
+
+            pos.y += 20;
             m_Position = pos;
 
             if(m_BundleTree == null)
@@ -136,8 +142,9 @@ namespace AssetBundleBrowser
             }
             
             HandleHorizontalResize();
+            
             HandleVerticalResize();
-
+            
 
             if (AssetBundleModel.Model.BundleListIsEmpty())
             {
@@ -187,6 +194,11 @@ namespace AssetBundleBrowser
                 if (m_ResizingHorizontalSplitter || m_ResizingVerticalSplitterRight || m_ResizingVerticalSplitterLeft)
                     m_Parent.Repaint();
             }
+        }
+
+        private void RenameAll(string bundle)
+        {
+            Debug.Log("Renaming all!");
         }
 
         void OnGUISearchBar(Rect rect)

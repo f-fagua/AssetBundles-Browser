@@ -61,6 +61,32 @@ namespace AssetBundleBrowser
             }
         }
 
+        public void AppendStringToBundleNames(string extension)
+        {
+            var items = new List<RenameEndedArgs>();
+
+            foreach (var item in GetRows())
+            {
+                Debug.Log(item);
+                if (item.displayName.Contains(extension))
+                    continue;
+                
+                RenameEndedArgs args = new RenameEndedArgs
+                {
+                    itemID = item.id,
+                    originalName = item.displayName,
+                    newName = item.displayName + extension
+                };
+                
+                items.Add(args);
+            }
+            
+            foreach (var args in items)
+            {
+                RenameEnded(args);
+            }
+        }
+
         protected override void RenameEnded(RenameEndedArgs args)
         { 
             base.RenameEnded(args);

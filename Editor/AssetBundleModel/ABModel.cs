@@ -208,6 +208,7 @@ namespace AssetBundleBrowser.AssetBundleModel
                             var message = "Bundle name '" + bunName + "' exists without a variant as well as with variant '" + name.Substring(lastDot+1) + "'.";
                             message += " That is an illegal state that will not build and must be cleaned up.";
                             LogError(message);
+                            throw new Exception(message);
                         }
                         else
                         {
@@ -584,6 +585,7 @@ namespace AssetBundleBrowser.AssetBundleModel
                 {
                     //TODO: remove the variant name from the renaming to avoid crating one.
                     //DataSource.SetAssetBundleNameAndVariant(assetName, bundleName, variantName);
+                    Debug.Log($"DataSource.SetAssetBundleNameAndVariant(\n\t{assetName}, \n\t{bundleName}, \n\t{variantName})");
                     DataSource.SetAssetBundleNameAndVariant(assetName, bundleName, variantName);
                 }
             }

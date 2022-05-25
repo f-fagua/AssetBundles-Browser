@@ -80,10 +80,19 @@ namespace AssetBundleBrowser
                 
                 items.Add(args);
             }
-            
-            foreach (var args in items)
+
+
+            try
             {
-                RenameEnded(args);
+                AssetDatabase.StartAssetEditing();
+                foreach (var args in items)
+                {
+                    RenameEnded(args);
+                }
+            }
+            finally
+            {
+                AssetDatabase.StopAssetEditing();
             }
         }
 
